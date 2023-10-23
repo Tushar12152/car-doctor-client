@@ -1,41 +1,46 @@
 import { Link, useNavigate } from "react-router-dom";
-import logInPh from "../../../assets/images/login/login.svg";
+import logInPh from "../../../../assets/images/login/login.svg";
 import { useContext, useState } from "react";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { AuthContext } from "../../../../Provider/AuthProvider";
+import { AiFillEyeInvisible,AiFillEye } from 'react-icons/ai';
 import swal from "sweetalert";
 
-const Login = () => {
-    const {signIn}=useContext(AuthContext)
-   const navigate=useNavigate()
-    const [show,setShow]=useState(true)
+const SignUp = () => {
+const {createUser}=useContext(AuthContext)
+const [show,setShow]=useState(true)
+const navigate=useNavigate()
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    // console.log(email, password);
-    signIn(email,password)
-    .then((res)=>{
-        console.log(res)
-        swal('wow','you are logged in successfully',"success")
-        navigate('/')
-    })
-    .catch(err=>{
-        console.log(err)
-    })
-  };
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(email, password)
 
-  return (
-    <div className="hero min-h-screen bg-base-200">
+
+        createUser(email,password)
+        .then(()=>{
+            // console.log(res.user)
+            swal("Congratulations!", "your registration compleate successfully compleate", "success");
+            navigate('/login')
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+
+      };
+
+
+
+    return (
+        <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col  items-center justify-between gap-36 lg:flex-row">
         <div className="text-center lg:text-left">
           <img src={logInPh} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-3xl p-5 text-center font-semibold">Login</h1>
-          <form onSubmit={handleLogin} className="card-body">
+          <h1 className="text-3xl p-5 text-center font-semibold">Sign Up</h1>
+          <form onSubmit={handleSignUp} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -52,7 +57,7 @@ const Login = () => {
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <div className="relative">
+             <div className="relative">
              <input
                 name="password"
                 type={show?'text':"password"}
@@ -73,20 +78,20 @@ const Login = () => {
               <input
                 className="btn bg-[#FF3811] text-white"
                 type="submit"
-                value="sign in"
+                value="sign up"
               />
             </div>
             <p className="text-center p-5">
-              Have No Account?
-              <Link to="/signUp" className="text-[#FF3811]">
-                Sign up
+              Have an Account?
+              <Link to="/login" className="text-[#FF3811]">
+               Login
               </Link>
             </p>
           </form>
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default Login;
+export default SignUp;

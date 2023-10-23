@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 
 const ServiceCard = ({ service }) => {
   const { title, img, price } = service;
@@ -13,9 +14,14 @@ const ServiceCard = ({ service }) => {
         />
       </figure>
       <div className="card-body ml-5">
-        <h2 className="card-title">{title}</h2>
+   <div className="flex justify-between">
+      <div>
+      <h2 className="card-title">{title}</h2>
         <p className="text-[#FF3811] font-semibold text-lg">{price}</p>
-        
+      </div>
+      <button className="text-xl text-[#FF3811]"><BsFillArrowRightCircleFill></BsFillArrowRightCircleFill></button>
+  </div>
+      
       </div>
     </div>
   );
