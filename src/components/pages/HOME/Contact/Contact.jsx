@@ -3,7 +3,7 @@ import { PiPhoneCallBold } from 'react-icons/pi';
 
 const Contact = () => {
     return (
-        <div className='flex justify-around items-center bg-[#151515] text-white p-16 my-24 rounded-xl '>
+        <div className='flex flex-col lg:flex-row gap-6 justify-around items-center bg-[#151515] text-white p-16 my-24 rounded-xl '>
               <div className="flex gap-6 items-center ">
                   <div>
                       <SlCalender></SlCalender>
