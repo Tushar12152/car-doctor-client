@@ -3,6 +3,8 @@ import Routs from "../../layout/Routs/Routs";
 import Home from "../../components/pages/HOME/Home";
 import Login from "../../components/pages/login/Login";
 import SignUp from "../../components/pages/login/SignUp/SignUp";
+import PrivateRoute from "../../layout/Routs/PrivateRoute/PrivateRoute";
+import Service from "../../components/pages/Service/Service";
 
 const Router = createBrowserRouter([
     {
@@ -20,6 +22,12 @@ const Router = createBrowserRouter([
             {
                 path:"/signup",
                 element:<SignUp></SignUp>
+            },
+            {
+                path:"/service",
+                element:<PrivateRoute>
+                              <Service></Service>
+                       </PrivateRoute>
             }
         ]
     }
