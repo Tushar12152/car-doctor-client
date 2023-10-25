@@ -1,8 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg"
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import swal from "sweetalert";
 
 const Nav = () => {
+   const {user,LogOut}=useContext(AuthContext)
+   console.log(user)
 
+const logOut=()=>{
+  LogOut()
+  .then(()=>{
+    swal('logged out')
+  })
+  .catch(()=>{
+    swal('faild')
+  })
+}
 
 
     const nav=<div className=" flex gap-6">
@@ -46,7 +60,23 @@ const Nav = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <button className="btn btn-outline border-2 border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-[white]">Appointment</button>
+  <button className="btn btn-outline mr-2 border-2 border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-[white]">Appointment</button>
+
+  {
+    user?
+    <div className="flex items-center">
+   <div className="flex items-center">
+   <p className="bg-[#FF3811] text-white text-[10px]">{user?.displayName}</p>
+    <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
+   </div>
+
+<Link to='/login'>  <button onClick={logOut} className="btn btn-outline border-2 border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-[white]">Log Out</button></Link>
+    
+    </div>
+    :
+    
+    <button className="btn btn-outline border-2 border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-[white]">Login</button>
+  }
   </div>
 </div>
   );

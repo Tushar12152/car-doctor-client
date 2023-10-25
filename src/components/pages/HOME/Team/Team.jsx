@@ -1,10 +1,12 @@
-import team1 from "../../../../assets/images/team/1.jpg"
-import team2 from "../../../../assets/images/team/2.jpg"
-import team3 from "../../../../assets/images/team/3.jpg"
-import { FaFacebook } from 'react-icons/fa';
-import { AiFillTwitterCircle,AiFillLinkedin,AiFillInstagram } from 'react-icons/ai';
-
-
+import team1 from "../../../../assets/images/team/1.jpg";
+import team2 from "../../../../assets/images/team/2.jpg";
+import team3 from "../../../../assets/images/team/3.jpg";
+import { FaFacebook } from "react-icons/fa";
+import {
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+  AiFillInstagram,
+} from "react-icons/ai";
 
 const Team = () => {
   return (
@@ -20,73 +22,77 @@ const Team = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-      <div className="card w-[364px] bg-base-100 shadow-xl">
+        <div className="card w-[364px] bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">
-            <img
-              src={team1}
-              alt="team"
-              className="rounded-xl w-full"
-            />
+            <img src={team1} alt="team" className="rounded-xl w-full" />
           </figure>
           <div className="card-body items-center text-center">
-           
             <h2 className="card-title">Car Engine Plug</h2>
             <p className="">Engine Expert</p>
-             <div className="text-3xl flex gap-4">
-                 <span className="text-[#395185]"><FaFacebook></FaFacebook></span>
-                <span className="text-[#55ACEE]"><AiFillTwitterCircle></AiFillTwitterCircle></span>
-                <span className="text-[#0A66A2] rounded-full"><AiFillLinkedin></AiFillLinkedin></span>
-
-                <span className=""><AiFillInstagram className=""></AiFillInstagram></span>
-             </div>
+            <div className="text-3xl flex gap-4">
+              <span className="text-[#395185]">
+                <FaFacebook></FaFacebook>
+              </span>
+              <span className="text-[#55ACEE]">
+                <AiFillTwitterCircle></AiFillTwitterCircle>
+              </span>
+              <span className="text-[#0A66A2] rounded-full">
+                <AiFillLinkedin></AiFillLinkedin>
+              </span>
+              <span className=""><AiFillInstagram className=""></AiFillInstagram></span>
+            </div>
           </div>
         </div>
 
         <div className="card w-[364px] bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">
-            <img
-              src={team2}
-              alt="team"
-              className="rounded-xl w-full"
-            />
+            <img src={team2} alt="team" className="rounded-xl w-full" />
           </figure>
           <div className="card-body items-center text-center">
-           
             <h2 className="card-title">Car Engine Plug</h2>
             <p className="">Engine Expert</p>
-             <div className="text-3xl flex gap-4">
-                 <span className="text-[#395185]"><FaFacebook></FaFacebook></span>
-                <span className="text-[#55ACEE]"><AiFillTwitterCircle></AiFillTwitterCircle></span>
-                <span className="text-[#0A66A2] rounded-full"><AiFillLinkedin></AiFillLinkedin></span>
+            <div className="text-3xl flex gap-4">
+              <span className="text-[#395185]">
+                <FaFacebook></FaFacebook>
+              </span>
+              <span className="text-[#55ACEE]">
+                <AiFillTwitterCircle></AiFillTwitterCircle>
+              </span>
+              <span className="text-[#0A66A2]   rounded-full">
+                <AiFillLinkedin></AiFillLinkedin>
+              </span>
 
-                <span className=""><AiFillInstagram className=""></AiFillInstagram></span>
-             </div>
+              <span className="">
+                <AiFillInstagram className=""></AiFillInstagram>
+              </span>
+            </div>
           </div>
         </div>
-
 
         <div className="card w-[364px] bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">
-            <img
-              src={team3}
-              alt="team"
-              className="rounded-xl w-full"
-            />
+            <img src={team3} alt="team" className="rounded-xl w-full" />
           </figure>
           <div className="card-body items-center text-center">
-           
             <h2 className="card-title">Car Engine Plug</h2>
             <p className="">Engine Expert</p>
-             <div className="text-3xl flex gap-4">
-                 <span className="text-[#395185]"><FaFacebook></FaFacebook></span>
-                <span className="text-[#55ACEE]"><AiFillTwitterCircle></AiFillTwitterCircle></span>
-                <span className="text-[#0A66A2] rounded-full"><AiFillLinkedin></AiFillLinkedin></span>
+            <div className="text-3xl flex gap-4">
+              <span className="text-[#395185]">
+                <FaFacebook></FaFacebook>
+              </span>
+              <span className="text-[#55ACEE]">
+                <AiFillTwitterCircle></AiFillTwitterCircle>
+              </span>
+              <span className="text-[#0A66A2] rounded-full">
+                <AiFillLinkedin></AiFillLinkedin>
+              </span>
 
-                <span className=""><AiFillInstagram className=""></AiFillInstagram></span>
-             </div>
+              <span className="">
+                <AiFillInstagram className=""></AiFillInstagram>
+              </span>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   );

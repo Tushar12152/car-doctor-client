@@ -4,11 +4,26 @@ import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import swal from "sweetalert";
+import { FcGoogle } from 'react-icons/fc';
+
 
 const Login = () => {
-    const {signIn}=useContext(AuthContext)
+    const {signIn,googlePopUp}=useContext(AuthContext)
    const navigate=useNavigate()
     const [show,setShow]=useState(true)
+
+
+    const handleGooglePopUp=()=>{
+      googlePopUp()
+      .then(()=>{
+        swal('wow','you are logged in successfully',"success")
+        navigate('/')
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    }
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -82,7 +97,14 @@ const Login = () => {
                 Sign up
               </Link>
             </p>
+
+            <div>
+            <p className="text-center font-semibold border-b-2 pb-4">Sign Up With</p>
+            <button onClick={handleGooglePopUp} className="p-4 ml-36 text-3xl  "><FcGoogle></FcGoogle></button>
+            </div>
           </form>
+
+         
         </div>
       </div>
     </div>
