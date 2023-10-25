@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { title, img, price } = service;
-//   console.log(service)
+  const {_id, title, img, price } = service;
+  // console.log(service)
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
@@ -19,7 +20,7 @@ const ServiceCard = ({ service }) => {
       <h2 className="card-title">{title}</h2>
         <p className="text-[#FF3811] font-semibold text-lg">{price}</p>
       </div>
-      <button className="text-xl text-[#FF3811]"><BsFillArrowRightCircleFill></BsFillArrowRightCircleFill></button>
+      <Link to={`checkout/${_id}`}><button className="text-xl text-[#FF3811]"><BsFillArrowRightCircleFill></BsFillArrowRightCircleFill></button></Link>
   </div>
       
       </div>
