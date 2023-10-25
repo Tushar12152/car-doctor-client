@@ -66,7 +66,7 @@ const logOut=()=>{
     user?
     <div className="flex items-center">
    <div className="flex items-center">
-   <p className="bg-[#FF3811] text-white text-[10px]">{user?.displayName}</p>
+   <p className="bg-[#d05840] text-white text-[12px] ">{user?.displayName}</p>
     <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
    </div>
 
