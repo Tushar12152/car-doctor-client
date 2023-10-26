@@ -6,7 +6,7 @@ import swal from "sweetalert";
 
 const Nav = () => {
   const { user, LogOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const logOut = () => {
     LogOut()
@@ -65,34 +65,44 @@ const Nav = () => {
         Contact
       </NavLink>
 
-      <NavLink
-        to="/contact"
+      {user?.email ? (
+        <div className="flex gap-6">
+   
+
+   <NavLink
+        to="/bookings"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-red-500 underline" : ""
         }
       >
-        {user ? (
-          <div>
-            
-
-            <Link to="/login">
-              {" "}
-              <button
-                onClick={logOut}
-                
-              >
-                Log Out
-              </button>
-            </Link>
-          </div>
-        ) : (
-           <Link to='/login'>
-           <button>
-            Login
-          </button>
-           </Link>
-        )}
+        My Bookings
       </NavLink>
+
+
+          <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-red-500 underline" : ""
+            }
+          >
+            <button onClick={logOut}> Log Out</button>
+          </NavLink>
+        </div>
+      ) : (
+
+        <NavLink
+        to="/login"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "text-red-500 underline" : ""
+        }
+      >
+       <button>Login</button>
+      </NavLink>
+
+
+
+     
+      )}
     </div>
   );
 
@@ -127,16 +137,16 @@ const Nav = () => {
           <img className="w-[100px]" src={logo} alt="" />
         </Link>
 
-        {
-        user?<div className="flex flex-row-reverse items-center">
-        <p className="bg-[#d05840] text-white text-[12px] ">
-          {user?.displayName}
-        </p>
-        <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
-      </div> : ''
-      }
-
-
+        {user ? (
+          <div className="flex flex-row-reverse items-center">
+            <p className="bg-[#d05840] text-white text-[12px] ">
+              {user?.displayName}
+            </p>
+            <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{nav}</ul>
@@ -145,10 +155,7 @@ const Nav = () => {
         <button className="btn btn-outline mr-2 border-2 border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811] hover:text-[white]">
           Appointment
         </button>
-        
       </div>
-
-     
     </div>
   );
 };
