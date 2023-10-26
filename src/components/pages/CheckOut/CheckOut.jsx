@@ -26,7 +26,7 @@ const CheckOut = () => {
       price: price,
     };
 
-    console.log(order);
+    // console.log(order);
 
     fetch("http://localhost:5002/bookings", {
       method: "POST",
@@ -36,7 +36,7 @@ const CheckOut = () => {
       body: JSON.stringify(order),
     }).then(res => res.json())
     .then(data=>{
-      console.log(data)
+      // console.log(data)
       if(data.insertedId){
         swal("Good job!", "Your order is confirmed", "success");
 
