@@ -5,6 +5,7 @@ import Login from "../../components/pages/login/Login";
 import SignUp from "../../components/pages/login/SignUp/SignUp";
 import PrivateRoute from "../../layout/Routs/PrivateRoute/PrivateRoute";
 import Service from "../../components/pages/Service/Service";
+import CheckOut from "../../components/pages/CheckOut/CheckOut";
 
 const Router = createBrowserRouter([
     {
@@ -28,6 +29,12 @@ const Router = createBrowserRouter([
                 element:<PrivateRoute>
                               <Service></Service>
                        </PrivateRoute>
+            },
+            {
+                path:"/checkout/:id",
+                element:<CheckOut></CheckOut>,
+                loader:({params})=>fetch(`http://localhost:5002/services/${params.id}`)
+              
             }
         ]
     }
