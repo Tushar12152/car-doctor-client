@@ -10,6 +10,7 @@ const Bookings = () => {
 
   useEffect(() => {
     fetch(url,{credentials:"include"})
+    
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
