@@ -32,8 +32,8 @@ const Login = () => {
     const password = form.password.value;
     // console.log(email, password);
     signIn(email,password)
-    .then((res)=>{
-        console.log(res)
+    .then(()=>{
+        // console.log(res)
         swal('wow','you are logged in successfully',"success")
         navigate('/')
     })
